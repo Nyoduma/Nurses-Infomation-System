@@ -5,5 +5,7 @@
 #Create a new directory called scripts under the project folder Nurses-Information_system.
 #Start by creating an empty directory called templates inside the scripts directory.This will hold all the html files.
 #Create a python file called HospitalDb.py under Scripts directory.Start by importing SQLite3 and the use the API 
-#conn = sqlite3.connect('unit1.db') to connect to unit1.db.Then create ntable 
-creating table Patient.I Commited changes to git after creating table.
+#conn = sqlite3.connect('unit1.db') to connect to unit1.db.Then CREATE TABLE 
+#creating table Patient.I Commited changes to git after creating table.
+#Noticed i made mistakes while creating the table PATIENT.
+#I should have started with the doctor table so that i can use doctor id as foreign key in patient table.
