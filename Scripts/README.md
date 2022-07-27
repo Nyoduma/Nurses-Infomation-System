@@ -9,3 +9,4 @@
 #creating table Patient.I Commited changes to git after creating table.
 #Noticed i made mistakes while creating the table PATIENT.
 #I should have started with the doctor table so that i can use doctor id as foreign key in patient table.
+#Created hospitalDB.py file and i connected to unit2.db and i just created the doctor's table.
