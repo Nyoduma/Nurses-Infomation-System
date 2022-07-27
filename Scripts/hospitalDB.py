@@ -1,17 +1,29 @@
 #Create a TABLE
+# import sqlite3
+# conn = sqlite3.connect('unit2.db')
+# print("Opened database successfully")
+# conn.execute('''CREATE TABLE DOCTORS
+#             (DoctorID INT PRIMARY KEY NOT NULL,
+#             FirstName TEXT NOT NULL,
+#             LastName TEXT NOT NULL,
+#             Speciality TEXT NOT NULL,
+#             BleepNo INT NOT NULL,
+#             PHONE TEXT NOT NULL);''')
+# print("Table created successfully")
+# conn.close()
+
+
+
+#INSERTING DETAILS INTO THE DOCTORS TABLE
 import sqlite3
 conn = sqlite3.connect('unit2.db')
 print("Opened database successfully")
-conn.execute('''CREATE TABLE DOCTORS
-            (DoctorID INT PRIMARY KEY NOT NULL,
-            FirstName TEXT NOT NULL,
-            LastName TEXT NOT NULL,
-            Speciality TEXT NOT NULL,
-            BleepNo INT NOT NULL,
-            PHONE TEXT NOT NULL);''')
-print("Table created successfully")
-conn.close()
+conn.execute("INSERT INTO DOCTORS (DoctorID,FirstName,LastName, Speciality,BleepNo, PHONE)\
+              VALUES (1,' Caroline', 'Amenya', 'Oncology', 130,'0870975678')");
 
+conn.commit()
+print("Records Created Successfully")
+conn.close()
 
 
 
@@ -43,9 +55,8 @@ conn.close()
 # print("Table created successfully")
 # conn.close()
 
-#
-# conn.execute('DROP TABLE PATIENT')
-# conn.commit()
+
+
 
 #INSERTING DETAILS INTO THE PATIENT TABLE
 # import sqlite3
