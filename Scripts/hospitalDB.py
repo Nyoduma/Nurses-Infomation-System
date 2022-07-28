@@ -15,9 +15,9 @@
 
 
 #INSERTING DETAILS INTO THE DOCTORS TABLE
-import sqlite3
-conn = sqlite3.connect('unit2.db')
-print("Opened database successfully")
+# import sqlite3
+# conn = sqlite3.connect('unit2.db')
+# print("Opened database successfully")
 # conn.execute("INSERT INTO DOCTORS (DoctorID,FirstName,LastName, Speciality,BleepNo, PHONE)\
 #               VALUES (1,' Caroline', 'Amenya', 'Oncology', 130,'0870975678')");
 
@@ -40,15 +40,28 @@ print("Opened database successfully")
 # conn.execute("INSERT INTO DOCTORS (DoctorID,FirstName,LastName, Speciality,BleepNo, PHONE)\
 #               VALUES (10,' Nathan', 'Butler', 'psychiatry', 155,'0870879578')");
 #
+# conn.commit()
+# print("Records Created Successfully")
+# conn.close()
 
 
+#SELECT operation
 
-conn.commit()
-print("Records Created Successfully")
+import sqlite3
+conn = sqlite3.connect('unit2.db')
+print("Opened database successfully")
+cursor = conn.execute("SELECT  DoctorID, FirstName,LastName, Speciality,BleepNo,PHONE from DOCTORS")
+print(cursor)
+for row in cursor:
+    print("DoctorID = ", row[0])
+    print("FirstName = ", row[1])
+    print("LastName =", row[2])
+    print(" Speciality = ", row[3])
+    print("BleepNo = ", row[4])
+    print("PHONE = ", row[5], "\n")
+    print("Operation done successfully")
+
 conn.close()
-
-
-
 
 
 
