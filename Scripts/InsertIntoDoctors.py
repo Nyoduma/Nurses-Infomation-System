@@ -26,18 +26,5 @@ conn.execute("INSERT INTO DOCTORS (DoctorID,FirstName,LastName, Speciality,Bleep
 
 conn.commit()
 print("Records Created Successfully")
-
-
-#select operation to view contents of DOCTOR TABLE
-cursor = conn.execute("SELECT  DoctorID, FirstName,LastName, Speciality,BleepNo,PHONE from DOCTORS")
-print(cursor)
-for row in cursor:
-    print("DoctorID = ", row[0])
-    print("FirstName = ", row[1])
-    print("LastName =", row[2])
-    print(" Speciality = ", row[3])
-    print("BleepNo = ", row[4])
-    print("PHONE = ", row[5], "\n")
-    print("Operation done successfully")
-
 conn.close()
+
