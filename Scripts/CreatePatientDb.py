@@ -18,6 +18,6 @@
 #             CONDITION CHAR(100) NOT NULL,
 #             CURRENTmeds CHAR(100) NOT NULL,
 #             NURSINGcare CHAR(500) NOT NULL,
-#             MEDICALhistory CHAR(500));''')
+#             MEDICALhistory CHAR(500) NOT NULL);''')
 # print("Table created successfully")
 # conn.close()
