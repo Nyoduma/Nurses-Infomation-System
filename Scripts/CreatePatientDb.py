@@ -16,7 +16,6 @@ conn.execute('''CREATE TABLE PATIENT
             EMAIL TEXT UNIQUE NOT NULL,
             DATEofAdmission TEXT NOT NULL,
             TIMEofAdmission TEXT NOT NULL,
-            DoctorID INT NOT NULL,
             NextOfKin CHAR (20) NOT NULL,
             NextOfKinMobile INT NOT NULL,
             CONDITION CHAR(100) NOT NULL,
