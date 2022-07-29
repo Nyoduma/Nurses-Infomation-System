@@ -30,4 +30,5 @@ print("Table created successfully")
 
 #conn.execute("ALTER TABLE PATIENT DROP COLUMN DoctorID") #referenced from https://www.sqlite.org/lang_altertable.html
 #conn.execute('select PATIENT from sqlite_master where type="table"').fetchall()  # referenced from https://stackoverflow.com/questions/14262771/why-am-i-suddenly-getting-operationalerror-no-such-table
+conn.execute("ALTER TABLE PATIENT DROP COLUMN Email") #referenced from https://www.sqlite.org/lang_altertable.html
 conn.close() # closes database
