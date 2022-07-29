@@ -16,3 +16,4 @@ after importing SQLite3 and using #conn = sqlite3.connect('unit.db'.InsertintoNu
 table while selectNursesdb.py is for selectinf the nurses in the table.CreatePatientDb.py is to create table called PATIENTS
 InsertIntoPatient is for inserting data into PATIENT table and selectPatient.py is for selecting
 data in patient table.
+Deleted entire Database as i could notinsert into table PATIENT even though the database says table Patient already exists.
