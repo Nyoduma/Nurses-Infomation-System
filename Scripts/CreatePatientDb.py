@@ -1,6 +1,6 @@
 #Create a TABLE
-import sqlite3
-conn = sqlite3.connect('unit2.db')
+import sqlite3 # imports the SQLite library
+conn = sqlite3.connect('unit2.db') #opens database
 print("Opened database successfully")
 conn.execute('''CREATE TABLE PATIENT
             (PatientID INT PRIMARY KEY NOT NULL,
@@ -30,4 +30,4 @@ print("Table created successfully")
 
 #conn.execute("ALTER TABLE PATIENT DROP COLUMN DoctorID") #referenced from https://www.sqlite.org/lang_altertable.html
 #conn.execute('select PATIENT from sqlite_master where type="table"').fetchall()  # referenced from https://stackoverflow.com/questions/14262771/why-am-i-suddenly-getting-operationalerror-no-such-table
-conn.close()
+conn.close() # closes database
