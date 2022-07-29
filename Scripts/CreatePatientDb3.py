@@ -10,14 +10,9 @@ conn.execute('''CREATE TABLE PATIENT
             HEIGHT TEXT NOT NULL,
             WEIGHT TEXT NOT  NULL,
             BMI REAL NOT NULL,
-            BSL REAL NOT NULL,
-            ADDRESS   CHAR(50) NOT NULL,
             Mphone TEXT NOT NULL,
             EMAIL TEXT UNIQUE NOT NULL,
             DATEofAdmission TEXT NOT NULL,
-            TIMEofAdmission TEXT NOT NULL,
-            NextOfKin TEXT  NOT NULL,
-            NextOfKinMobile TEXT NOT NULL,
             CONDITION CHAR(100) NOT NULL,
             CURRENTmeds CHAR(100) NOT NULL,
             NURSINGcare CHAR(100) NOT NULL,
@@ -26,6 +21,6 @@ conn.execute('''CREATE TABLE PATIENT
             Staff_ID INT NOT NULL,
             FOREIGN KEY(Doctor_ID) REFERENCES DOCTOR(DoctorID)  
             FOREIGN KEY (Staff_ID) REFERENCES NURSES(StaffID));''')
-print("Table created successfully")
+print("Table created successfully") #prints string to console
 conn.close() #closes db
 #reference to UNIQUE CONSTRAINT https://www.sqlitetutorial.net/sqlite-unique-constraint/
