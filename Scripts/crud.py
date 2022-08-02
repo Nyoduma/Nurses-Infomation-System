@@ -6,6 +6,6 @@ app = Flask(__name__,template_folder='templates')
 def index():
     return render_template("index.html");
 
-@app.route('/add')
+@app.route('/add_p')
 def add():
-    return render_template("add.html")
+    return render_template("add_p.html")
