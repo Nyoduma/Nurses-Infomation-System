@@ -1,14 +1,23 @@
 
 
-font-family:sans-serif;
+
 html,body { height:100%; }
 
+h1{
+color: #d64161;
+font-size: 2em;
+text-decoration: none;
 
- nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
+
+}
+
+
+nav a {
+color: #d64161;
+font-size: 2em;
+margin-left: 50px;
+text-decoration: none;
+
         }
 
 
