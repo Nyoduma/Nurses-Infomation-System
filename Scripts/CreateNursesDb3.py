@@ -6,6 +6,7 @@ conn.execute('''CREATE TABLE NURSES
             (StaffID INT PRIMARY KEY NOT NULL,
             FirstName TEXT NOT NULL,
             LastName TEXT NOT NULL,
+            Password CHAR(6) NOT NULL,
             Level TEXT NOT NULL,
             Mobile TEXT NOT NULL,
             Department TEXT NOT NULL,
