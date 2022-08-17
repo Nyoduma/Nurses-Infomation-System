@@ -1,27 +1,24 @@
-from flask import Flask, redirect, url_for, request,render_template
+from flask import Flask,render_template,request,redirect,url_for
 app = Flask(__name__,template_folder='templates')
 
 @app.route('/')
-def index():
-    return render_template('logingin.html')
-
-@app.route('/success/<name>')
-def success(name):
-    return 'welcome %s' % name
-
-@app.route('/logingin',methods = ['POST', 'GET'])
-def login():
-    if request.method == 'POST':
-        user = request.form['nm']
-        return redirect(url_for('success',name = user))
-    else:
-        user = request.args.get('nm')
-        return redirect(url_for('success',name = user))
+def loging():
+    return render_template('login.html')
 
 
 
-if __name__== '__main__':
-    app.run(debug = True)
+@app.route('/add')
+def creating():
+    return render_template('add.html')
+
+
+
+if __name__=='__main__':
+    app.run(host='0.0.0.0', port='8080',debug=True)   #https://replit.com/talk/ask/Flask-app-doesnt-load-in-the-browser-need-help/116192
+
+
+
+
 
 
 
