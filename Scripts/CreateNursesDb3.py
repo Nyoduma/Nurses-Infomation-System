@@ -11,6 +11,7 @@ conn.execute('''CREATE TABLE NURSES
             Mobile TEXT NOT NULL,
             Department TEXT NOT NULL,
             StartDate TEXT NOT NULL,
+            Email TEXT UNIQUE NOT NULL,
             Address CHAR(50) NOT NULL);''')
 print("Table created successfully")
 conn.close() #closes db
