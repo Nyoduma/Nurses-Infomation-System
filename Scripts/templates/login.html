@@ -1,7 +1,51 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home  </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+  <h1> Login page</h1><hr>
+
+ <h1> Welcome to St Catherine's Emergency Department </h1>
+    <h2> <form action = "http://localhost:8080/login" method = "post">
+
+            <p>Enter Name:</p> <p><input type = "text" name = "nm" required /></p>
+           <p>Enter Email:</p> <p><input type = "email" name = "email"  required/></p>
+           <p>Enter Password:</p> <p><input type = "password" name = "password" required /></p>
+            <p> <button type = "submit"> Submit </button> </p>
+          <p> <button type = "reset"> Reset</button> </p>
+
+
+        </form></h2>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Nurses' Login in Page {% endblock %}</h1>
+    <h1>{% block title %} Nurses' Login in  {% endblock %}</h1>
 
     <h1> Welcome to St Catherine's Emergency Department </h1>
     <h2> <form action = "http://localhost:8080/login" method = "post">
