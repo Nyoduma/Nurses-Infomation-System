@@ -2,16 +2,16 @@
 import sqlite3  #imports sqlite3
 conn = sqlite3.connect('unit3.db') # opens db
 print("Opened database successfully")
-conn.execute('''CREATE TABLE NURSES
-            (StaffID INT PRIMARY KEY NOT NULL,
-            FirstName TEXT NOT NULL,
-            LastName TEXT NOT NULL,
-            Password CHAR(6) NOT NULL,
-            Level TEXT NOT NULL,
-            Mobile TEXT NOT NULL,
-            Department TEXT NOT NULL,
-            StartDate TEXT NOT NULL,
-            Email TEXT UNIQUE NOT NULL,
-            Address CHAR(50) NOT NULL);''')
+conn.execute('''CREATE TABLE nurses
+            (staffid INT PRIMARY KEY NOT NULL,
+            first_name TEXT NOT NULL,
+            last_name TEXT NOT NULL,
+            password CHAR(6) NOT NULL,
+            level TEXT NOT NULL,
+            mobile TEXT NOT NULL,
+            department TEXT NOT NULL,
+            Start_date TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            address CHAR(50) NOT NULL);''')
 print("Table created successfully")
 conn.close() #closes db
