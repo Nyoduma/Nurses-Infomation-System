@@ -5,24 +5,24 @@
 
     <h2>This Form is For Patient Details Only</h2>
     <p>Please enter all information in full in the spaces below: </p>
-    <form action = "/savedetails" method = "post">
+    <form action = "http://localhost:8080/savedetails" method = "POST">
            <table>
-               <tr><td>Patient ID </td><td><input type= "text" name = "PatientID"></td></tr>
-               <tr><td>First Name </td><td><input type="text" name=" FirstName"></td></tr>
-               <tr><td>Sur Name </td><td><input type="text" name="SurName"></td></tr>
-               <tr><td>Age      </td><td><input type="text" name="AGE"></td></tr>
-                <tr><td> Height </td><td><input type="text" name=" HEIGHT"></td></tr>
-               <tr><td> Weight </td><td><input type="text" name=" WEIGHT"></td></tr>
-                <tr><td> BMI  </td><td><input type="text" name="BMI"></td></tr>
-               <tr><td>Mobile Phone  </td><td><input type="text" name="Mphone"></td></tr>
-                <tr><td>Email </td><td><input type="email" name="EMAIL"></td></tr>
-               <tr><td>Date of Admission </td><td><input type="text" name="DATEofAdmission"></td></tr>
-               <tr><td>Condition  </td><td><textarea  id="condition" name="CONDITION" rows="4" cols="50"></textarea></td></tr>
-                <tr><td>Current medications </td><td><textarea  id="CURRENTmeds" name="CURRENTmeds" rows="4" cols="50"></textarea></td></tr>
-                <tr><td> Nursing care given</td><td><textarea  id="NURSINGcare" name="NURSINGcare" rows="4" cols="50"></textarea></td></tr>
-               <tr><td>Medical history </td><td><textarea  id="MEDICALhistory" name="MEDICALhistory" rows="4" cols="50"></textarea></td></tr>
-               <tr><td> Doctor's ID </td><td><input type=text name="Doctor_ID"></td></tr>
-               <tr><td> Your Nurse ID </td><td><input type=text name="email"></td></tr>
+               <tr><td>Patient ID </td><td><input type= "text" name = "patient_id"></td></tr>
+               <tr><td>First Name </td><td><input type="text" name=" first_name"></td></tr>
+               <tr><td>Sur Name </td><td><input type="text" name="sur_name"></td></tr>
+               <tr><td>Age      </td><td><input type="number" name="age" min="1" max="200"></td></tr>
+                <tr><td> Height </td><td><input type="text" name=" height"></td></tr>
+               <tr><td> Weight </td><td><input type="text" name=" weight"></td></tr>
+                <tr><td> BMI  </td><td><input type="text" name="bmi"></td></tr>
+               <tr><td>Mobile Phone  </td><td><input type="text" name="M_phone"></td></tr>
+                <tr><td>Email </td><td><input type="email" name="email"></td></tr>
+               <tr><td>Date of Admission </td><td><input type="date" name="date_of_admission"></td></tr>
+               <tr><td>Condition  </td><td><textarea  id="condition" name="condition" rows="4" cols="50"></textarea></td></tr>
+                <tr><td>Current medications </td><td><textarea  id="current_meds" name="current_meds" rows="4" cols="50"></textarea></td></tr>
+                <tr><td>Care given</td><td><textarea  id="nursing_care" name="nursing_care" rows="4" cols="50"></textarea></td></tr>
+               <tr><td>Medical history </td><td><textarea  id="medical_history" name="medical_history" rows="4" cols="50"></textarea></td></tr>
+               <tr><td> Doctor's ID </td><td><input type=text name="doctor_id"></td></tr>
+               <tr><td> Your Nurse ID </td><td><input type=text name="staff_id"></td></tr>
                 <tr><td><input type="submit" value="Submit"></td></tr>
     </table>
         </form>
