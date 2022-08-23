@@ -93,6 +93,15 @@ def view():
     rows = cur.fetchall()
     return render_template('view.html', rows=rows)
 
+@app.route('/view_doctors')
+def view_doctors():
+    con = sqlite3.connect("unit3.db")
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    cur.execute("select * from doctors ")
+    rows = cur.fetchall()
+    return render_template('viewDocs.html', rows=rows)
+
 @app.route('/delete')
 def delete():
     return render_template("delete.html")
