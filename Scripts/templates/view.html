@@ -2,11 +2,12 @@
 
 {% block content %}
     <h1>{% block title %} View Patients {% endblock %}</h1>
+
       <h2>Patient information</h2>
         <table border=5>
     <thead>
         <td>PatientID</td>
-        <td> First Name</td>
+        <td>First Name</td>
         <td>Sir Name</td>
         <td>Age</td>
         <td>Height</td>
@@ -26,22 +27,22 @@
     {% for row in rows %}
 
         <tr>
-            <td>{{row["PatientID"]}}</td>
-            <td>{{row["FirstName"]}}</td>
-            <td>{{row["SurName"]}}</td>
-            <td>{{row["AGE"]}}</td>
-            <td>{{row["HEIGHT"]}}</td>
-            <td>{{row["WEIGHT"]}}</td>
-            <td>{{row["BMI"]}}</td>
-            <td>{{row["Mphone"]}}</td>
-            <td>{{row["EMAIL"]}}</td>
-            <td>{{row["DATEofAdmission"]}}</td>
-            <td>{{row["CONDITION"]}}</td>
-            <td>{{row["CURRENTmeds"]}}</td>
-            <td>{{row["NURSINGcare "]}}</td>
-            <td>{{row["MEDICALhistory"]}}</td>
-            <td>{{row["Doctor_ID"]}}</td>
-            <td>{{row["Staff_ID"]}}</td>
+            <td>{{row["patient_id"]}}</td>
+            <td>{{row["first_name"]}}</td>
+            <td>{{row["sir_name"]}}</td>
+            <td>{{row["age"]}}</td>
+            <td>{{row["height"]}}</td>
+            <td>{{row["weight"]}}</td>
+            <td>{{row["bmi"]}}</td>
+            <td>{{row["mobile_phone"]}}</td>
+            <td>{{row["email"]}}</td>
+            <td>{{row["date_of_admission"]}}</td>
+            <td>{{row["condition"]}}</td>
+            <td>{{row["current_meds"]}}</td>
+            <td>{{row["nursing_care "]}}</td>
+            <td>{{row["medical_history"]}}</td>
+            <td>{{row["doctor_id"]}}</td>
+            <td>{{row["staff_id"]}}</td>
         </tr>
 
     {% endfor %}
