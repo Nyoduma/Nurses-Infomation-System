@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Delete Patients{% endblock %}</h1>
+
+
+
+                        <form action="/deleterecord" method="post">
+                                Patient Id <input type="text" name="patient_id">
+                                        <input type="submit" value="Submit">
+                        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
