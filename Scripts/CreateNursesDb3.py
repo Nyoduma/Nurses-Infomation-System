@@ -1,9 +1,9 @@
 #Create a TABLE
 import sqlite3  #imports sqlite3
-conn = sqlite3.connect('unit3.db') # opens db
+conn = sqlite3.connect('unit3.db')  # opens db
 print("Opened database successfully")
 conn.execute('''CREATE TABLE nurses
-            (staffid INT PRIMARY KEY NOT NULL,
+            (staffid INTEGER PRIMARY KEY AUTOINCREMENT,
             first_name TEXT NOT NULL,
             last_name TEXT NOT NULL,
             password CHAR(6) NOT NULL,
