@@ -21,7 +21,8 @@
         <td>Nursing Care</td>
         <td>Medical History</td>
         <td>DoctorID</td>
-        <td>NurseID</td>
+         <td>StaffID</td>
+
          </thead>
 
     {% for row in rows %}
@@ -43,6 +44,8 @@
             <td>{{row["medical_history"]}}</td>
             <td>{{row["doctor_id"]}}</td>
             <td>{{row["staff_id"]}}</td>
+              <td><button><a href="/update"> Update </a></button></td>
+
         </tr>
 
     {% endfor %}
