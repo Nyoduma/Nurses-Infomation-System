@@ -7,12 +7,42 @@ app = Flask(__name__,template_folder='templates')
 
 
 
+#REGISTER
+@app.route('/register', methods=["POST", "GET"])
+def register():
+    if request.method == "POST":
+        try:
+            first_name = request.form['first_name']
+            last_name = request.form['last_name']
+            password = request.form['password']
+            level = request.form['level']
+            mobile_number = request.form['mobile_number']
+            department = request.form['department']
+            start_date = request.form['start_date']
+            email = request.form['email']
+            address = request.form['address']
+            with sqlite3.connect("unit3.db") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO nurses(first_name,last_name,password,level,"
+                        "mobile_number, department, start_date, email,address) VALUES (?,?,?,?,?,?,?,?,?)", (first_name, last_name, password, level, mobile_number, department,
+                                                      start_date, email, address))
+                con.commit()
+                flash("Record added successfully", "Success")
+        except:
+
+            flash("Error in insert operation", "danger")
+        finally:
+            return redirect(url_for('loging'))
+            con.close()
+    return render_template('register.html')
 
 
+
+#LOGIN
 @app.route('/', methods=["POST", "GET"])
 def loging():
     if request.method == "POST":
-        #Connect to db
+        # Connect to db
         con = sqlite3.connect("unit3.db")
         cur = con.cursor()
         #HTML Form
@@ -37,7 +67,7 @@ def kazi():
 def creating():
     return render_template('add.html')
 
-
+#CREATE PATIENT
 @app.route('/save', methods=["POST", "GET"])
 def save():
 
@@ -76,13 +106,13 @@ def save():
         except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
             con.rollback()
             msg = str(e)
-            msg = "We cannot add the patient to the list because of:", format(e)
+            msg = "We cannot add the patient to the list because of:{}". format(e)
         finally:
             return render_template("success.html", msg=msg)
             con.close()
 
 
-
+#VIEW PATIENTS
 
 @app.route('/view')
 def view():
@@ -93,6 +123,7 @@ def view():
     rows = cur.fetchall()
     return render_template('view.html', rows=rows)
 
+#VIEW FOR NURSES
 @app.route('/view_doctors')
 def view_doctors():
     con = sqlite3.connect("unit3.db")
@@ -102,6 +133,9 @@ def view_doctors():
     rows = cur.fetchall()
     return render_template('viewDocs.html', rows=rows)
 
+
+
+#DELETE
 @app.route('/delete')
 def delete():
     return render_template("delete.html")
@@ -115,10 +149,10 @@ def deleterecord():
             cur = con.cursor()
             cur.execute("delete from patient where patient_id = ?", patient_id)
             msg = "record successfully deleted"
-        except Exception as e:  # https://pythonprogramming.net/flask-error-handling-basics/
+        except Exception as e:  #taken from:  https://pythonprogramming.net/flask-error-handling-basics/
             con.rollback()
             msg = str(e)
-            msg = "can't be deleted because:",format(e)
+            msg = "can't be deleted because: {}".format(e)
         finally:
             return render_template("delete_record.html", msg=msg)
 
