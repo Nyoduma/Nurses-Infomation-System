@@ -109,7 +109,7 @@ def save():
             msg = "We cannot add the patient to the list because of:{}". format(e)
         finally:
             return render_template("success.html", msg=msg)
-            con.close()
+
 
 
 #VIEW PATIENTS
@@ -123,7 +123,7 @@ def view():
     rows = cur.fetchall()
     return render_template('view.html', rows=rows)
 
-#VIEW FOR NURSES
+#VIEW FOR DOCTORS
 @app.route('/view_doctors')
 def view_doctors():
     con = sqlite3.connect("unit3.db")
@@ -132,14 +132,35 @@ def view_doctors():
     cur.execute("select * from doctors ")
     rows = cur.fetchall()
     return render_template('viewDocs.html', rows=rows)
+
+
+#VIEW CONDITIONS
 @app.route('/view_conditions')
 def view_conditions():
     con = sqlite3.connect("unit3.db")
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("SELECT patient_id,first_name, condition from patient ")
+    cur.execute("SELECT patient_id, condition from patient ")
     rows = cur.fetchall()
     return render_template('viewConditions.html', rows=rows)
+
+
+
+
+def update():
+    if request.method == "POST":
+
+        new_meds = request.form["new_meds"]
+        new_nursing_care = request.form["new_nursing_care"]
+        con = sqlite3.connect("unit3.db")
+        cur = con.cursor()
+        cur.execute("UPDATE patient SET  current_meds = '{}', nursing_care = '{}'".format(new_meds, new_nursing_care))
+        con.commit()
+        con.close()
+        return redirect(url_for("view"))
+    else:
+        return render_template('update.html')
+
 
 
 
@@ -148,9 +169,8 @@ def view_conditions():
 def delete():
     return render_template("delete.html")
 
-
-@app.route('/deleterecord', methods=["POST"])
-def deleterecord():
+@app.route('/delete_record', methods=["POST", "GET"])
+def delete_record():
     patient_id = request.form["patient_id"]
     with sqlite3.connect("unit3.db") as con:
         try:

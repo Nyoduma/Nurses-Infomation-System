@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %}Update Patient{% endblock %}</h1>
+
+
+
+                        <form action="http://localhost:8080/update" method="post">
+                            <table>
+
+
+                                <tr><td> Current Meds</td><td><textarea  id="new_meds" name="new_meds" rows="4" cols="50"></textarea></td></tr>
+                               <tr><td> Nursing Care</td><td><textarea  id="new_nursing_care" name="new_nursing_care" rows="4" cols="50"></textarea></td></tr>
+                                <tr><td><input type="submit" value="Submit"></td></tr>
+                            </table>
+                        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
