@@ -22,6 +22,10 @@ text-decoration: none;
 
 
 .shadow{
+float:left;
+width:50cm;
+height:50cm;
+margin-left:50px;
 box-shadow:3px 3px 10px black;
 padding:30px
 
