@@ -9,10 +9,18 @@
 </head>
 <body>
 
-  <h1> Login page</h1><hr>
+  <h1> </h1><hr>
 
  <h1> Welcome to St Catherine's Emergency Department </h1>
     <h2> <form action = "http://localhost:8080/" method = "post">
+              <h3 class="page-header text-primary">Login</h3>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+        {%  if messages%}
+                {% for category,message in messages  %}
+        <div class="alert alert-{{category}}">{{message}}</div>
+        {% endfor%}
+        {% endif%}
+        {% endwith%}
 
 
            <p>Enter Email:</p> <p><input type = "email" name = "email"  required/></p>
