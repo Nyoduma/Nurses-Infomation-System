@@ -21,3 +21,8 @@ text-decoration: none;
         }
 
 
+.shadow{
+box-shadow:3px 3px 10px black;
+padding:30px
+
+}
