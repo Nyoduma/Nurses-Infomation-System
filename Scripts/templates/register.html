@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+        <h1> Register page</h1><hr>
+
+             <h3> <form action = "http://localhost:8080/register" method = "post">
+            <table>
+                  <tr><td>First Name:</td><td><input type="text" name="first_name"></td></tr>
+                 <tr><td>Last Name:</td><td><input type="text" name="last_name"></td></tr>
+                 <tr><td>Enter Password:</td><td><input type="password" name="password"></td></tr>
+                 <tr><td>Job Level:</td><td><input type="text" name="level"></td></tr>
+                 <tr><td>Mobile Number:</td><td><input type= "text" name="mobile_number"></td></tr>
+                 <tr><td>Department:</td><td><input type="text" name="department"></td></tr>
+                 <tr><td>Start Date:</td><td><input type="date" name="start_date"></td></tr>
+                 <tr><td>Email:</td><td><input type="email" name="email"></td></tr>
+                <tr><td>Address</td><td><textarea  id="address" name="address" rows="4" cols="50"></textarea></td></tr>
+
+                <tr><td><input type="submit" value="Submit"></td></tr>
+          </table>
+
+
+
+
+        </form></h3>
+
+</body>
+</html>
+
+
+
+
+
+
+
