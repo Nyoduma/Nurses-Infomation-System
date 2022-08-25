@@ -5,24 +5,24 @@
    <h2> list of our doctors on call</h2>
             <table border=5>
     <thead>
-        <td>DoctorID</td>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Speciality</td>
-        <td>Bleep Number</td>
-        <td>Mobile Phone</td>
+        <td>doctorid</td>
+        <td>first_name</td>
+        <td>last_name</td>
+        <td>speciality</td>
+        <td>bleep_no</td>
+        <td>phone</td>
 
     </thead>
 
     {% for row in rows %}
 
         <tr>
-            <td>{{row["DoctorID"]}}</td>
-            <td>{{row["FirstName"]}}</td>
-            <td>{{row["LastName"]}}</td>
-            <td>{{row["Speciality"]}}</td>
-            <td>{{row["BleepNo"]}}</td>
-            <td>{{row["PHONE"]}}</td>
+            <td>{{row["doctorid"]}}</td>
+            <td>{{row["first_name"]}}</td>
+            <td>{{row["last_name"]}}</td>
+            <td>{{row["speciality"]}}</td>
+            <td>{{row["bleep_no"]}}</td>
+            <td>{{row["phone"]}}</td>
 
         </tr>
 
