@@ -132,6 +132,14 @@ def view_doctors():
     cur.execute("select * from doctors ")
     rows = cur.fetchall()
     return render_template('viewDocs.html', rows=rows)
+@app.route('/view_conditions')
+def view_conditions():
+    con = sqlite3.connect("unit3.db")
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    cur.execute("SELECT patient_id,first_name, condition from patient ")
+    rows = cur.fetchall()
+    return render_template('viewConditions.html', rows=rows)
 
 
 
