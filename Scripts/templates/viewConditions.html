@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} View Doctors {% endblock %}</h1>
+   <h2> list of Individual Patient conditions call</h2>
+            <table border=5>
+    <thead>
+        <td>patient_id</td>
+        <td>first_name</td>
+        <td>condition</td>
+
+
+    </thead>
+
+    {% for row in rows %}
+
+        <tr>
+            <td>{{row["patient_id"]}}</td>
+            <td>{{row["first_name"]}}</td>
+            <td>{{row["condition"]}}</td>
+
+
+        </tr>
+
+    {% endfor %}
+</table>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
