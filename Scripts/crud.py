@@ -7,35 +7,6 @@ app = Flask(__name__,template_folder='templates')
 
 
 
-#REGISTER
-@app.route('/register', methods=["POST", "GET"])
-def register():
-    if request.method == "POST":
-        try:
-            first_name = request.form['first_name']
-            last_name = request.form['last_name']
-            password = request.form['password']
-            level = request.form['level']
-            mobile_number = request.form['mobile_number']
-            department = request.form['department']
-            start_date = request.form['start_date']
-            email = request.form['email']
-            address = request.form['address']
-            with sqlite3.connect("unit3.db") as con:
-                cur = con.cursor()
-                cur.execute("INSERT INTO nurses(first_name,last_name,password,level,"
-                        "mobile_number, department, start_date, email,address) VALUES (?,?,?,?,?,?,?,?,?)", (first_name, last_name, password, level, mobile_number, department,
-                                                      start_date, email, address))
-                con.commit()
-                flash("Record added successfully", "Success")
-        except:
-
-            flash("Error in insert operation", "danger")
-        finally:
-            return redirect(url_for('loging'))
-            con.close()
-    return render_template('register.html')
-
 
 
 #LOGIN
@@ -59,6 +30,43 @@ def loging():
     return render_template('login.html')
 
 
+#REGISTER
+@app.route('/register', methods=["POST", "GET"])
+def register():
+    msg = ""
+
+    if request.method == "POST":
+        try:
+            first_name = request.form['first_name']
+            last_name = request.form['last_name']
+            password = request.form['password']
+            level = request.form['level']
+            mobile = request.form['mobile']
+            department = request.form['department']
+            start_date = request.form['start_date']
+            email = request.form['email']
+            address = request.form['address']
+            with sqlite3.connect("unit3.db") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO nurses(first_name,last_name,password,level,"
+                            "mobile, department, start_date, email,address) VALUES (?,?,?,?,?,?,?,?,?)",
+                            (first_name, last_name, password, level, mobile, department,
+                             start_date, email, address))
+                con.commit()
+                msg = "success"
+        except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
+            con.rollback()
+            msg = str(e)
+
+        finally:
+            return redirect(url_for('loging', msg=msg))
+            con.close()
+
+    return render_template('register.html', msg=msg)
+
+
+
+
 @app.route('/duties')
 def kazi():
     return render_template('duties.html')
@@ -71,7 +79,7 @@ def creating():
 @app.route('/save', methods=["POST", "GET"])
 def save():
 
-    msg = "msg"
+    msg = ""
     if request.method == "POST":
         try:
             patient_id = request.form["patient_id"]
@@ -109,6 +117,7 @@ def save():
             msg = "We cannot add the patient to the list because of:{}". format(e)
         finally:
             return render_template("success.html", msg=msg)
+            con.close()
 
 
 
@@ -145,21 +154,61 @@ def view_conditions():
     return render_template('viewConditions.html', rows=rows)
 
 
+#UPDATE
+@app.route('/update/<string:pid>', methods=["POST", "GET"])
+def update(pid):
+    msg = ""
+
+    con = sqlite3.connect("unit3.db")
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    cur.execute("SELECT * FROM  patient where patient_id = ?", [pid])
+    rows = cur.fetchone()
+    con.close()
 
 
-def update():
-    if request.method == "POST":
+    if request.method == 'POST':
 
-        new_meds = request.form["new_meds"]
-        new_nursing_care = request.form["new_nursing_care"]
-        con = sqlite3.connect("unit3.db")
-        cur = con.cursor()
-        cur.execute("UPDATE patient SET  current_meds = '{}', nursing_care = '{}'".format(new_meds, new_nursing_care))
-        con.commit()
-        con.close()
-        return redirect(url_for("view"))
-    else:
-        return render_template('update.html')
+        try:
+            first_name = request.form["first_name"]
+            sir_name = request.form["sir_name"]
+            age = request.form["age"]
+            height = request.form["height"]
+            weight = request.form["weight"]
+            bmi = request.form["bmi"]
+            mobile_phone = request.form["mobile_phone"]
+            email = request.form["email"]
+            date_of_admission = request.form["date_of_admission"]
+            condition = request.form["condition"]
+            current_meds = request.form["current_meds"]
+            nursing_care = request.form["nursing_care"]
+            medical_history = request.form["medical_history"]
+            doctor_id = request.form["doctor_id"]
+            staff_id = request.form["staff_id"]
+            sqlite3.connect("unit3.db")
+            cur = con.cursor()
+            cur.execute("UPDATE patient SET first_name = ?,sir_name = ?,age = ?,height = ?,weight = ?,bmi = ?,mobile_phone = ?,"
+                            "email = ?,date_of_admission = ?, condition= ?, current_meds = ?,nursing_care = ?,medical_history = ?,doctor_id = ?,"
+                            "staff_id = ? WHERE patient_id = ?", ( first_name, sir_name, age, height, weight, bmi, mobile_phone,
+                             email, date_of_admission, condition, current_meds, nursing_care, medical_history,
+                             doctor_id, staff_id, pid))
+            con.commit()
+            msg = "Patient successfully Updated"
+
+        except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
+            con.rollback()
+            msg = str(e)
+            msg = "We cannot update the patient to the list because of:{}".format(e)
+
+        finally:
+            return redirect(url_for('kazi'))
+            con.close()
+
+
+    return render_template('update.html', rows=rows, msg=msg)
+
+
+
 
 
 
@@ -169,9 +218,9 @@ def update():
 def delete():
     return render_template("delete.html")
 
-@app.route('/delete_record', methods=["POST", "GET"])
-def delete_record():
-    patient_id = request.form["patient_id"]
+@app.route('/delete_record/<int:patient_id>', methods=["POST", "GET"])
+def delete_record(patient_id):
+    #patient_id = request.form["patient_id"]
     with sqlite3.connect("unit3.db") as con:
         try:
             cur = con.cursor()
@@ -182,7 +231,7 @@ def delete_record():
             msg = str(e)
             msg = "can't be deleted because: {}".format(e)
         finally:
-            return render_template("delete_record.html", msg=msg)
+            return render_template("view", msg=msg)
 
 
 
