@@ -1,24 +1,93 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %}Update Patient{% endblock %}</h1>
+    <h1>{% block title %}Update {% endblock %}</h1>
+
+        <div class="form-div">
+
+                        <form action="" method="post">
+                            <h2 class="page-header"> Update Record</h2>
+                            <div>
+                                <label>First Name</label>
+                                 <input type="text" class="form_control" name="first_name" value="{{rows['first_name']}}">
+
+                            </div>
+                             <div>
+                                 <label>Sir Name</label>
+                                 <input type="text" class="form_control" name="sir_name" value="{{rows['sir_name']}}">
+
+                            </div>
+                             <div>
+                                 <label> Age</label>
+                                 <input type="text" class="form_control" name="age" value="{{rows['age']}}">
+
+                            </div>
+                             <div>
+                                    <label> Height</label>
+                                 <input type="text" class="form_control" name="height" value="{{rows['height']}}">
+                            </div>
+                             <div>
+                                    <label> Weight</label>
+                                 <input type="text" class="form_control" name="weight" value="{{rows['weight']}}">
+                            </div>
+                             <div>
+                                        <label> BMI</label>
+                                 <input type="text" class="form_control" name="bmi" value="{{rows['bmi']}}">
+                            </div>
+
+                             <div>
+                                    <label> Mobile</label>
+                                 <input type="text" class="form_control" name="mobile_phone" value="{{rows['mobile_phone']}}">
+                            </div>
+
+                             <div>
+                                    <label> Email</label>
+                                 <input type="text" class="form_control" name="email" value="{{rows['email']}}">
+                            </div>
+                            <div>
+                                    <label> Date Of Admission</label>
+                                 <input type="text" class="form_control" name="date_of_admission" value="{{rows['date_of_admission']}}">
+                            </div>
+                            <div>
+                                    <label> Condition</label>
+                                 <input type="text" class="form_control" name="condition" value="{{rows['condition']}}">
+                            </div>
+                            <div class="form-group">
+                                <label>New  Meds</label>
+                                <textarea  class="form-control" name="current_meds">{{rows['current_meds']}}</textarea>
+                            </div>
+                             <div class="form-group">
+                                  <label>New Care Given</label>
+                                <textarea  class="form-control" name="nursing_care">{{rows['nursing_care']}}</textarea>
+                             </div>
+
+                            <div>
+                                    <label> Medical History</label>
+                                 <textarea  class="form-control" name="medical_history">{{rows['medical_history']}}</textarea>
+                            </div>
+                            <div>
+                                    <label> DoctorID</label>
+                                 <input type="text" class="form_control" name="doctor_id" value="{{rows['doctor_id']}}">
+                            </div>
+                            <div>
+                                    <label>StaffID</label>
+                                 <input type="text" class="form_control" name="staff_id" value="{{rows['staff_id']}}">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Update">
+
+                            </div>
+
+                           </form>
+
+
+        </div>
 
 
 
-                        <form action="http://localhost:8080/update" method="post">
-                            <table>
 
 
-                                <tr><td> Current Meds</td><td><textarea  id="new_meds" name="new_meds" rows="4" cols="50"></textarea></td></tr>
-                               <tr><td> Nursing Care</td><td><textarea  id="new_nursing_care" name="new_nursing_care" rows="4" cols="50"></textarea></td></tr>
-                                <tr><td><input type="submit" value="Submit"></td></tr>
-                            </table>
-                        </form>
-
-
-
-
-
+                <p>{{msg}}</p>
 
 
 
