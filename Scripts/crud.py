@@ -157,7 +157,7 @@ def view_conditions():
 #UPDATE
 @app.route('/update/<string:pid>', methods=["POST", "GET"])
 def update(pid):
-    msg = ""
+
 
     con = sqlite3.connect("unit3.db")
     con.row_factory = sqlite3.Row
