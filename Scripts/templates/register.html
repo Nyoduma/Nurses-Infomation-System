@@ -10,6 +10,7 @@
 <body>
 
         <h1> Register page</h1><hr>
+
 <div class="shadow">
              <h3> <form action = "http://localhost:8080/register" method = "post">
                <table>
@@ -17,7 +18,7 @@
                  <tr><td>Last Name:</td><td><input type="text" name="last_name"></td></tr>
                  <tr><td>Enter Password:</td><td><input type="password" name="password"></td></tr>
                  <tr><td>Job Level:</td><td><input type="text" name="level"></td></tr>
-                 <tr><td>Mobile Number:</td><td><input type= "text" name="mobile_number"></td></tr>
+                 <tr><td>Mobile Number:</td><td><input type= "text" name="mobile"></td></tr>
                  <tr><td>Department:</td><td><input type="text" name="department"></td></tr>
                  <tr><td>Start Date:</td><td><input type="date" name="start_date"></td></tr>
                  <tr><td>Email:</td><td><input type="email" name="email"></td></tr>
@@ -26,6 +27,8 @@
                 <tr><td><input type="submit" value="Submit"></td></tr>
                </table>
              </form></h3>
+
+     <p>{{msg}}</p>
 </div>
 </body>
 </html>
