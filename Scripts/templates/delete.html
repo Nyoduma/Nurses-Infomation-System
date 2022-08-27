@@ -5,7 +5,7 @@
 
 
 
-                        <form action="/deleterecord" method="post">
+                        <form action='{{url_for("delete_record", patient_id=row.patient_id)}}' method="post">
                                 Patient Id <input type="text" name="patient_id">
                                         <input type="submit" value="Submit">
                         </form>
