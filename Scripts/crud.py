@@ -157,6 +157,7 @@ def view_conditions():
 #UPDATE
 @app.route('/update/<string:pid>', methods=["POST", "GET"])
 def update(pid):
+    msg = ""
 
 
     con = sqlite3.connect("unit3.db")
@@ -201,11 +202,11 @@ def update(pid):
             msg = "We cannot update the patient to the list because of:{}".format(e)
 
         finally:
-            return redirect(url_for('kazi'))
+            return redirect(url_for('kazi', msg=msg))
             con.close()
 
 
-    return render_template('update.html', rows=rows, msg=msg)
+    return render_template('update.html', rows=rows)
 
 
 
@@ -218,20 +219,24 @@ def update(pid):
 def delete():
     return render_template("delete.html")
 
-@app.route('/delete_record/<int:patient_id>', methods=["POST", "GET"])
-def delete_record(patient_id):
-    #patient_id = request.form["patient_id"]
-    with sqlite3.connect("unit3.db") as con:
+@app.route('/delete_record/<string:pid>', methods=["POST", "GET"])
+def delete_record(pid):
+    msg = ""
+
+
+    with sqlite3.connect("unit3.db") as con:  # connect to db
         try:
             cur = con.cursor()
-            cur.execute("delete from patient where patient_id = ?", patient_id)
+            cur.execute("delete from patient where patient_id = ?", (pid))
+            con.commit()
             msg = "record successfully deleted"
         except Exception as e:  #taken from:  https://pythonprogramming.net/flask-error-handling-basics/
             con.rollback()
             msg = str(e)
             msg = "can't be deleted because: {}".format(e)
         finally:
-            return render_template("view", msg=msg)
+            return redirect(url_for('kazi', msg=msg))
+            con.close()
 
 
 
