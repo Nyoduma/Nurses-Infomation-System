@@ -6,23 +6,26 @@
       <h2>Patient information</h2>
         <table border=5>
     <thead>
-        <td>PatientID</td>
-        <td>First Name</td>
-        <td>Sir Name</td>
-        <td>Age</td>
-        <td>Height</td>
-        <td>Weight</td>
-        <td>BMI</td>
-        <td>Mobile Phone</td>
-        <td>Email</td>
-        <td>Date of Admission</td>
-        <td>Condition</td>
-        <td>Current Medication</td>
-        <td>Nursing Care</td>
-        <td>Medical History</td>
-        <td>DoctorID</td>
-         <td>StaffID</td>
-
+     <tr>
+        <th>PatientID</th>
+        <th>First Name</th>
+        <th>Sir Name</th>
+        <th>Age</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>BMI</th>
+        <th>Mobile Phone</th>
+        <th>Email</th>
+        <th>Date of Admission</th>
+        <th>Condition</th>
+        <th>Current Medication</th>
+        <th>Nursing Care</th>
+        <th>Medical History</th>
+        <th>DoctorID</th>
+         <th>StaffID</th>
+          <th>Update</th>
+         <th>Delete</th>
+     </tr>
          </thead>
 
     {% for row in rows %}
@@ -46,6 +49,7 @@
             <td>{{row["doctor_id"]}}</td>
             <td>{{row["staff_id"]}}</td>
               <td><button><a href="{{url_for('update', pid=row['patient_id'])}}" class="update-space">Update  </a></button></td>
+             <td><button><a href="{{url_for('delete_record', pid=row['patient_id'])}}" class="update-space">Delete  </a></button></td>
 
         </tr>
 
