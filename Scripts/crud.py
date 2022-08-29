@@ -214,10 +214,10 @@ def update(pid):
 
 
 
-#DELETE
-@app.route('/delete')
-def delete():
-    return render_template("delete.html")
+# #DELETE
+# @app.route('/delete')
+# def delete():
+#     return render_template("delete.html")
 
 @app.route('/delete_record/<string:pid>', methods=["POST", "GET"])
 def delete_record(pid):
