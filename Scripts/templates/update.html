@@ -9,69 +9,69 @@
                             <h2 class="page-header"> Update Record</h2>
                             <div>
                                 <label>First Name</label>
-                                 <input type="text" class="form_control" name="first_name" value="{{rows['first_name']}}">
+                                 <input type="text" class="form_control" name="first_name" value="{{patient_info[1]}}">
 
                             </div>
                              <div>
                                  <label>Sir Name</label>
-                                 <input type="text" class="form_control" name="sir_name" value="{{rows['sir_name']}}">
+                                 <input type="text" class="form_control" name="sir_name" value="{{patient_info[2]}}">
 
                             </div>
                              <div>
                                  <label> Age</label>
-                                 <input type="text" class="form_control" name="age" value="{{rows['age']}}">
+                                 <input type="text" class="form_control" name="age" value="{{patient_info[3]}}">
 
                             </div>
                              <div>
                                     <label> Height</label>
-                                 <input type="text" class="form_control" name="height" value="{{rows['height']}}">
+                                 <input type="text" class="form_control" name="height" value="{{patient_info[4]}}">
                             </div>
                              <div>
                                     <label> Weight</label>
-                                 <input type="text" class="form_control" name="weight" value="{{rows['weight']}}">
+                                 <input type="text" class="form_control" name="weight" value="{{patient_info[5]}}">
                             </div>
                              <div>
                                         <label> BMI</label>
-                                 <input type="text" class="form_control" name="bmi" value="{{rows['bmi']}}">
+                                 <input type="text" class="form_control" name="bmi" value="{{patient_info[6]}}">
                             </div>
 
                              <div>
                                     <label> Mobile</label>
-                                 <input type="text" class="form_control" name="mobile_phone" value="{{rows['mobile_phone']}}">
+                                 <input type="text" class="form_control" name="mobile_phone" value="{{patient_info[7]}}">
                             </div>
 
                              <div>
                                     <label> Email</label>
-                                 <input type="text" class="form_control" name="email" value="{{rows['email']}}">
+                                 <input type="text" class="form_control" name="email" value="{{patient_info[8]}}">
                             </div>
                             <div>
                                     <label> Date Of Admission</label>
-                                 <input type="text" class="form_control" name="date_of_admission" value="{{rows['date_of_admission']}}">
+                                 <input type="text" class="form_control" name="date_of_admission" value="{{patient_info[9]}}">
                             </div>
                             <div>
                                     <label> Condition</label>
-                                 <input type="text" class="form_control" name="condition" value="{{rows['condition']}}">
+                                 <input type="text" class="form_control" name="condition" value="{{patient_info[10]}}">
                             </div>
                             <div class="form-group">
                                 <label>New  Meds</label>
-                                <textarea  class="form-control" name="current_meds">{{rows['current_meds']}}</textarea>
+                                <textarea  class="form-control" name="current_meds">{{patient_info[11]}}</textarea>
                             </div>
                              <div class="form-group">
-                                  <label>New Care Given</label>
-                                <textarea  class="form-control" name="nursing_care">{{rows['nursing_care']}}</textarea>
+                                  <label>New Care</label>
+                                <textarea  class="form-control" name="nursing_care">{{patient_info[12]}}</textarea>
                              </div>
 
                             <div>
                                     <label> Medical History</label>
-                                 <textarea  class="form-control" name="medical_history">{{rows['medical_history']}}</textarea>
+                                 <textarea  class="form-control" name="medical_history">{{patient_info[13]}}</textarea>
                             </div>
                             <div>
                                     <label> DoctorID</label>
-                                 <input type="text" class="form_control" name="doctor_id" value="{{rows['doctor_id']}}">
+                                 <input type="text" class="form_control" name="doctor_id" value="{{patient_info[14]}}">
                             </div>
                             <div>
                                     <label>StaffID</label>
-                                 <input type="text" class="form_control" name="staff_id" value="{{rows['staff_id']}}">
+                                 <input type="text" class="form_control" name="staff_id" value="{{patient_info[15]}}">
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Update">
@@ -88,6 +88,7 @@
 
 
                 <p>{{msg}}</p>
+
 
 
 
