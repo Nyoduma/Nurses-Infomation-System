@@ -1,14 +1,12 @@
 
 
 
-html,body { height:100%; }
+
 
 h1{
 color: #d64161;
 font-size: 2em;
 text-decoration: none;
-
-
 }
 
 
@@ -17,8 +15,7 @@ color: #d64161;
 font-size: 2em;
 margin-left: 50px;
 text-decoration: none;
-
-        }
+ }
 
 
 .shadow{
@@ -28,8 +25,8 @@ height:50cm;
 margin-left:50px;
 box-shadow:3px 3px 10px black;
 padding:30px
-
 }
+
 .update-space{
 background-colour:blue;
 text-align:center;
