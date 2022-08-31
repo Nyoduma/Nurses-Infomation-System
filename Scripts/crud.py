@@ -155,20 +155,30 @@ def view_conditions():
 
 
 #UPDATE
-@app.route('/update/<string:pid>', methods=["POST", "GET"])
+@app.route('/update/<int:pid>', methods=["POST", "GET"])
 def update(pid):
-    msg = ""
-
-
+    #connectiong to database and setting up the cursor
     con = sqlite3.connect("unit3.db")
-    con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("SELECT * FROM  patient where patient_id = ?", [pid])
-    rows = cur.fetchone()
-    con.close()
+    msg = ""  #initialising the msg variable
 
 
-    if request.method == 'POST':
+    if request.method == 'GET': # get the information from the database based on user id
+        try:
+            con.row_factory = sqlite3.Row
+            cur.execute("SELECT * FROM  patient where patient_id = ?", [pid])
+            patient_info = cur.fetchone() #set the information received from database
+            con.close()
+
+        except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
+            con.rollback()
+            msg = str(e)
+
+        finally:
+            return render_template('update.html', patient_info=patient_info,  msg=msg) #pass information to update.html to be prepopulated into the html form.
+
+
+    if request.method == 'POST':    #updating patient data
 
         try:
             first_name = request.form["first_name"]
@@ -186,14 +196,14 @@ def update(pid):
             medical_history = request.form["medical_history"]
             doctor_id = request.form["doctor_id"]
             staff_id = request.form["staff_id"]
-            sqlite3.connect("unit3.db")
-            cur = con.cursor()
+
             cur.execute("UPDATE patient SET first_name = ?,sir_name = ?,age = ?,height = ?,weight = ?,bmi = ?,mobile_phone = ?,"
                             "email = ?,date_of_admission = ?, condition= ?, current_meds = ?,nursing_care = ?,medical_history = ?,doctor_id = ?,"
-                            "staff_id = ? WHERE patient_id = ?", ( first_name, sir_name, age, height, weight, bmi, mobile_phone,
+                            "staff_id = ? WHERE patient_id = ?", (first_name, sir_name, age, height, weight, bmi, mobile_phone,
                              email, date_of_admission, condition, current_meds, nursing_care, medical_history,
                              doctor_id, staff_id, pid))
             con.commit()
+            con.close()
             msg = "Patient successfully Updated"
 
         except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
@@ -203,10 +213,6 @@ def update(pid):
 
         finally:
             return redirect(url_for('kazi', msg=msg))
-            con.close()
-
-
-    return render_template('update.html', rows=rows)
 
 
 
@@ -214,12 +220,13 @@ def update(pid):
 
 
 
-# #DELETE
-# @app.route('/delete')
-# def delete():
-#     return render_template("delete.html")
 
-@app.route('/delete_record/<string:pid>', methods=["POST", "GET"])
+
+
+
+
+
+@app.route('/delete_record/<int:pid>')
 def delete_record(pid):
     msg = ""
 
@@ -227,7 +234,7 @@ def delete_record(pid):
     with sqlite3.connect("unit3.db") as con:  # connect to db
         try:
             cur = con.cursor()
-            cur.execute("delete from patient where patient_id = ?", (pid))
+            cur.execute("delete from patient where patient_id = ?", (pid,))
             con.commit()
             msg = "record successfully deleted"
         except Exception as e:  #taken from:  https://pythonprogramming.net/flask-error-handling-basics/
@@ -235,6 +242,7 @@ def delete_record(pid):
             msg = str(e)
             msg = "can't be deleted because: {}".format(e)
         finally:
+
             return redirect(url_for('kazi', msg=msg))
             con.close()
 
