@@ -14,15 +14,15 @@
 <div class="shadow">
              <h3> <form action = "http://localhost:8080/register" method = "post">
                <table>
-                  <tr><td>First Name:</td><td><input type="text" name="first_name"></td></tr>
-                 <tr><td>Last Name:</td><td><input type="text" name="last_name"></td></tr>
-                 <tr><td>Enter Password:</td><td><input type="password" name="password"></td></tr>
-                 <tr><td>Job Level:</td><td><input type="text" name="level"></td></tr>
-                 <tr><td>Mobile Number:</td><td><input type= "text" name="mobile"></td></tr>
-                 <tr><td>Department:</td><td><input type="text" name="department"></td></tr>
-                 <tr><td>Start Date:</td><td><input type="date" name="start_date"></td></tr>
-                 <tr><td>Email:</td><td><input type="email" name="email"></td></tr>
-                <tr><td>Address</td><td><textarea  id="address" name="address" rows="4" cols="50"></textarea></td></tr>
+                  <tr><td>First Name:</td><td><input type="text" autocomplete="off" autofocus name="first_name" required></td></tr>
+                 <tr><td>Last Name:</td><td><input type="text" autocomplete="off" name="last_name" required></td></tr>
+                 <tr><td>Enter Password:</td><td><input type="password" autocomplete="off" name="password" required></td></tr>
+                 <tr><td>Job Level:</td><td><input type="text" autocomplete="off" name="level" required ></td></tr>
+                 <tr><td>Mobile Number:</td><td><input type= "text" autocomplete="off" name="mobile" required></td></tr>
+                 <tr><td>Department:</td><td><input type="text" autocomplete="off" name="department" required></td></tr>
+                 <tr><td>Start Date:</td><td><input type="date" autocomplete="off" name="start_date" required></td></tr>
+                 <tr><td>Email:</td><td><input type="email"  autocomplete="off" name="email" required></td></tr>
+                <tr><td>Address</td><td><textarea  id="address" name="address" rows="4" cols="50" required></textarea></td></tr>
 
                 <tr><td><input type="submit" value="Submit"></td></tr>
                </table>
