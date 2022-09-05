@@ -31,8 +31,6 @@ def loging():
 
             msg = "Invalid username or password.Please try again"
 
-
-
     return render_template('login.html', msg=msg)
 
 
