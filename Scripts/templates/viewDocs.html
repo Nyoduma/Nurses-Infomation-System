@@ -3,30 +3,32 @@
 {% block content %}
     <h1>{% block title %} View Doctors {% endblock %}</h1>
    <h2> list of our doctors on call</h2>
-            <table border=5>
-    <thead>
-        <td>doctorid</td>
-        <td>first_name</td>
-        <td>last_name</td>
-        <td>speciality</td>
-        <td>bleep_no</td>
-        <td>phone</td>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border-spacing-2 border border-slate-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <th class="border border-slate-300">doctorid</th>
+        <th class="border border-slate-300">first_name</th>
+        <th class="border border-slate-300">last_name</th>
+        <th class="border border-slate-300">speciality</th>
+        <th class="border border-slate-300">bleep_no</th>
+        <th class="border border-slate-300">phone</th>
 
     </thead>
+       <tbody>
 
     {% for row in rows %}
 
         <tr>
-            <td>{{row["doctorid"]}}</td>
-            <td>{{row["first_name"]}}</td>
-            <td>{{row["last_name"]}}</td>
-            <td>{{row["speciality"]}}</td>
-            <td>{{row["bleep_no"]}}</td>
-            <td>{{row["phone"]}}</td>
+            <td class="border border-slate-300">{{row["doctorid"]}}</td>
+            <td class="border border-slate-300">{{row["first_name"]}}</td>
+            <td class="border border-slate-300">{{row["last_name"]}}</td>
+            <td class="border border-slate-300">{{row["speciality"]}}</td>
+            <td class="border border-slate-300">{{row["bleep_no"]}}</td>
+            <td class="border border-slate-300">{{row["phone"]}}</td>
 
         </tr>
 
     {% endfor %}
+       </tbody>
 </table>
 <br><br>
 
