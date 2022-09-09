@@ -3,11 +3,11 @@
 {% block content %}
     <h1>{% block title %} View Doctors {% endblock %}</h1>
    <h2> list of Individual Patient conditions call</h2>
-            <table border=5>
-    <thead>
-        <td>patient_id</td>
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-200 border-separate border-spacing-2 border border-slate-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <th class="border border-slate-300">patient_id</th>
 
-        <td>condition</td>
+        <th class="border border-slate-300">condition</th>
 
 
     </thead>
@@ -15,9 +15,9 @@
     {% for row in rows %}
 
         <tr>
-            <td>{{row["patient_id"]}}</td>
+            <td class="border border-slate-300">{{row["patient_id"]}}</td>
 
-            <td>{{row["condition"]}}</td>
+            <td class="border border-slate-300">{{row["condition"]}}</td>
 
 
         </tr>
