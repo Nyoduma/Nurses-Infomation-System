@@ -7,22 +7,22 @@
     <p>Please enter all information in full in the spaces below: </p>
     <form action = "http://localhost:8080/save" method = "POST">
            <table>
-               <tr><td>Patient ID</td><td><input type= "text" name="patient_id"></td></tr>
-               <tr><td>First Name</td><td><input type="text" name="first_name"></td></tr>
-               <tr><td>Sir Name</td><td><input type="text" name="sir_name"></td></tr>
-               <tr><td>Age</td><td><input type="number" name="age" min="1" max="200"></td></tr>
-                <tr><td>Height</td><td><input type="text" name="height"></td></tr>
-               <tr><td>Weight</td><td><input type="text" name="weight"></td></tr>
-                <tr><td>BMI</td><td><input type="text" name="bmi"></td></tr>
-               <tr><td>Mobile Phone</td><td><input type="text" name="mobile_phone"></td></tr>
-                <tr><td>Email</td><td><input type="email" name="email"></td></tr>
-               <tr><td>Date of Admission</td><td><input type="date" name="date_of_admission"></td></tr>
-               <tr><td>Condition</td><td><textarea  id="condition" name="condition" rows="4" cols="50"></textarea></td></tr>
-                <tr><td>Current medications</td><td><textarea  id="current_meds" name="current_meds" rows="4" cols="50"></textarea></td></tr>
-                <tr><td>Care given</td><td><textarea  id="nursing_care" name="nursing_care" rows="4" cols="50"></textarea></td></tr>
-               <tr><td>Medical history</td><td><textarea  id="medical_history" name="medical_history" rows="4" cols="50"></textarea></td></tr>
-               <tr><td>Doctor's ID</td><td><input type=text name="doctor_id"></td></tr>
-               <tr><td>Your Nurse ID</td><td><input type=text name="staff_id"></td></tr>
+               <tr><td>Patient ID</td><td><input type= "text" autocomplete="off" autofocus name="patient_id" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>First Name</td><td><input type="text" autocomplete="off" name="first_name" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Sir Name</td><td><input type="text" autocomplete="off" name="sir_name" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Age</td><td><input type="number" autocomplete="off" name="age" min="1" max="200" class="border border-blue-600 rounded" required></td></tr>
+                <tr><td>Height in centimetres</td><td><input type="text"  autocomplete="off" name="height" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Weight in kilograms</td><td><input type="text" autocomplete="off" name="weight" class="border border-blue-600 rounded" required></td></tr>
+                <tr><td>BMI</td><td><input type="text" autocomplete="off" name="bmi" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Mobile Phone</td><td><input type="text" autocomplete="off" name="mobile_phone" class="border border-blue-600 rounded" required></td></tr>
+                <tr><td>Email</td><td><input type="email" autocomplete="off" name="email" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Date of Admission</td><td><input type="date" autocomplete="off" name="date_of_admission" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Condition</td><td><textarea  id="condition" autocomplete="off"  name="condition" rows="4" cols="50" class="border border-blue-600 rounded" required></textarea></td></tr>
+                <tr><td>Current medications</td><td><textarea  id="current_meds" autocomplete="off" name="current_meds" rows="4" cols="50" class="border border-blue-600 rounded" required></textarea></td></tr>
+                <tr><td>Care given</td><td><textarea  id="nursing_care"  name="nursing_care" rows="4" cols="50" class="border border-blue-600 rounded" required></textarea></td></tr>
+               <tr><td>Medical history</td><td><textarea  id="medical_history" name="medical_history" rows="4" cols="50" class="border border-blue-600 rounded" required></textarea></td></tr>
+               <tr><td>Doctor's ID</td><td><input type=text  autocomplete="off" name="doctor_id" class="border border-blue-600 rounded" required></td></tr>
+               <tr><td>Your Nurse ID</td><td><input type=text  autocomplete="off" name="staff_id" class="border border-blue-600 rounded" required></td></tr>
                 <tr><td><input type="submit" value="Submit"></td></tr>
     </table>
         </form>
