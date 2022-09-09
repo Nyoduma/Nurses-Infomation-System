@@ -31,3 +31,13 @@ padding:30px
 background-colour:blue;
 text-align:center;
 }
+.email_error{
+color:red;
+
+}
+.form-control{
+
+margin-top:10px;
+margin-bottom:10px;
+
+}
