@@ -3,22 +3,22 @@ import sqlite3 # imports sqlite3
 conn = sqlite3.connect('unit3.db') #opens db
 print("Opened database successfully")
 conn.execute('''CREATE TABLE patient
-            (patient_id INTEGER PRIMARY KEY NULL,
-            first_name TEXT NULL,
-            sir_name TEXT NULL,
-            age INTEGER NULL,
-            height TEXT  NULL,
-            weight TEXT  NULL,
-            bmi REAL NULL,
-            mobile_phone TEXT NULL,
-            email TEXT UNIQUE NULL,
-            date_of_admission TEXT NULL,
-            condition CHAR(100) NULL,
-            current_meds CHAR(100)  NULL,
-            nursing_care CHAR(100) NULL,
-            medical_history CHAR(100) NULL,
-            doctor_id INT  NULL,
-            staff_id INT NULL,
+            (patient_id INTEGER PRIMARY KEY NOT NULL,
+            first_name TEXT  NOT NULL,
+            sir_name TEXT NOT  NULL,
+            age INTEGER NOT NULL,
+            height TEXT NOT  NULL,
+            weight TEXT NOT NULL,
+            bmi REAL NOT NULL,
+            mobile_phone TEXT NOT  NULL,
+            email TEXT UNIQUE NOT NULL,
+            date_of_admission TEXT NOT NULL,
+            condition CHAR(100) NOT  NULL,
+            current_meds CHAR(100) NOT NULL,
+            nursing_care CHAR(100) NOT NULL,
+            medical_history CHAR(100) NOT NULL,
+            doctor_id  INT NOT NULL,
+            staff_id INT NOT  NULL,
             FOREIGN KEY(doctor_id) REFERENCES DOCTOR(doctorid)  
             FOREIGN KEY (staff_id) REFERENCES NURSES(staffid));''')
 print("Table created successfully") #prints string to console
