@@ -40,8 +40,7 @@ def loging():
 @app.route('/register', methods=["POST", "GET"])
 def register():
     msg = ""
-    con = sqlite3.connect('unit3.db')
-    cur = con.cursor
+
 
     if request.method == "POST":
 
@@ -62,13 +61,24 @@ def register():
                             (first_name, last_name, password, level, mobile, department,
                              start_date, email, address))
                 con.commit()
-                msg = "success"
+
         except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
             con.rollback()
             msg = str(e)
+            # check for email error
 
+            if msg == 'UNIQUE constraint failed: nurses.email':
+                email_error = 'Email in use, please enter a new email'
+                return render_template('register.html', email_error=email_error)
+            #Check any other error
+            else:
+                msg = "We cannot add nurse to the list because:{}".format(e)
+                return render_template('register.html', msg=msg)
         finally:
-            return redirect(url_for('loging', msg=msg))
+
+
+            return redirect(url_for('loging'))
+
             con.close()
 
     return render_template('register.html', msg=msg)
@@ -123,7 +133,7 @@ def save():
         except Exception as e:  # taken from: https://pythonprogramming.net/flask-error-handling-basics/
             con.rollback()
             msg = str(e)
-            msg = "We cannot add the patient to the list because of:{}". format(e)
+            msg = "We cannot add the patient to the list because of:{} Please enter details in full". format(e)
         finally:
             return render_template("success.html", msg=msg)
             con.close()
