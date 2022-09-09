@@ -1,79 +1,79 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %}Update {% endblock %}</h1>
+    <h1>{% block title %}Update Record{% endblock %}</h1>
 
         <div class="form-div">
 
                         <form action="" method="post">
-                            <h2 class="page-header"> Update Record</h2>
-                            <div>
+
+                            <div class="form-control">
                                 <label>First Name</label>
-                                 <input type="text" class="form_control" name="first_name" value="{{patient_info[1]}}">
+                                 <input type="text"  class="border border-blue-600 rounded" name="first_name" value="{{patient_info[1]}}">
 
                             </div>
-                             <div>
+                             <div class="form-control">
                                  <label>Sir Name</label>
-                                 <input type="text" class="form_control" name="sir_name" value="{{patient_info[2]}}">
+                                 <input type="text" class="border border-blue-600 rounded"name="sir_name" value="{{patient_info[2]}}">
 
                             </div>
-                             <div>
+                             <div class="form-control">
                                  <label> Age</label>
-                                 <input type="text" class="form_control" name="age" value="{{patient_info[3]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="age" value="{{patient_info[3]}}">
 
                             </div>
-                             <div>
+                             <div class="form-control">
                                     <label> Height</label>
-                                 <input type="text" class="form_control" name="height" value="{{patient_info[4]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="height" value="{{patient_info[4]}}">
                             </div>
-                             <div>
+                             <div class="form-control">
                                     <label> Weight</label>
-                                 <input type="text" class="form_control" name="weight" value="{{patient_info[5]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="weight" value="{{patient_info[5]}}">
                             </div>
-                             <div>
+                             <div class="form-control">
                                         <label> BMI</label>
-                                 <input type="text" class="form_control" name="bmi" value="{{patient_info[6]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="bmi" value="{{patient_info[6]}}">
                             </div>
 
-                             <div>
+                             <div class="form-control">
                                     <label> Mobile</label>
-                                 <input type="text" class="form_control" name="mobile_phone" value="{{patient_info[7]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="mobile_phone" value="{{patient_info[7]}}">
                             </div>
 
-                             <div>
+                             <div class="form-control">
                                     <label> Email</label>
-                                 <input type="text" class="form_control" name="email" value="{{patient_info[8]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="email" value="{{patient_info[8]}}">
                             </div>
-                            <div>
+                            <div class="form-control">
                                     <label> Date Of Admission</label>
-                                 <input type="text" class="form_control" name="date_of_admission" value="{{patient_info[9]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="date_of_admission" value="{{patient_info[9]}}">
                             </div>
-                            <div>
+                            <div class="form-control">
                                     <label> Condition</label>
-                                 <input type="text" class="form_control" name="condition" value="{{patient_info[10]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="condition" value="{{patient_info[10]}}">
                             </div>
-                            <div class="form-group">
+                            <div class="form-control">
                                 <label>New  Meds</label>
-                                <textarea  class="form-control" name="current_meds">{{patient_info[11]}}</textarea>
+                                <textarea  class="border border-blue-600 rounded" name="current_meds">{{patient_info[11]}}</textarea>
                             </div>
-                             <div class="form-group">
+                             <div class="form-control">
                                   <label>New Care</label>
-                                <textarea  class="form-control" name="nursing_care">{{patient_info[12]}}</textarea>
+                                <textarea  class="border border-blue-600 rounded" name="nursing_care">{{patient_info[12]}}</textarea>
                              </div>
 
-                            <div>
+                            <div class="form-control">
                                     <label> Medical History</label>
-                                 <textarea  class="form-control" name="medical_history">{{patient_info[13]}}</textarea>
+                                 <textarea  class="border border-blue-600 rounded" name="medical_history">{{patient_info[13]}}</textarea>
                             </div>
-                            <div>
+                            <div class="form-control">
                                     <label> DoctorID</label>
-                                 <input type="text" class="form_control" name="doctor_id" value="{{patient_info[14]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="doctor_id" value="{{patient_info[14]}}">
                             </div>
-                            <div>
+                            <div class="form-control">
                                     <label>StaffID</label>
-                                 <input type="text" class="form_control" name="staff_id" value="{{patient_info[15]}}">
+                                 <input type="text" class="border border-blue-600 rounded" name="staff_id" value="{{patient_info[15]}}">
                             </div>
-                            <div class="form-group">
+                            <div class="form-control">
                                 <input type="submit" value="Update">
 
                             </div>
