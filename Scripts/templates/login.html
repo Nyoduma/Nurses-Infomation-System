@@ -14,8 +14,9 @@
  <h1> Welcome to St Catherine's Emergency Department </h1>
 
  <p>{{msg}}</p>
-    <form action = "http://localhost:8080/" method = "post">
+    <form id="form1" action = "http://localhost:8080/" method = "post" onsubmit="return check_form();">
               <h3 class="page-header text-primary">Login</h3>
+
 
         <p>Enter Email:</p> <p><input type = "email" autocomplete="off" autofocus name = "email"  required/></p>
            <p>Enter Password:</p> <p><input type = "password"  autocomplete="off" name = "password" required /></p>
@@ -29,6 +30,9 @@
 
     </form>
 </body>
+
+
+
 
 
 
