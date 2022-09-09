@@ -75,9 +75,12 @@ def register():
                 msg = "We cannot add nurse to the list because:{}".format(e)
                 return render_template('register.html', msg=msg)
         finally:
-
-
-            return redirect(url_for('loging'))
+            if msg == 'UNIQUE constraint failed: nurses.email':
+                email_error = 'Email in use, please enter a new email'
+                return render_template('register.html', email_error=email_error)
+                # Check any other error
+            else:
+                return redirect(url_for('loging'))
 
             con.close()
 
