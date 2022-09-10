@@ -1,5 +1,3 @@
-
-
 from flask import *  #this imports everything from the flask module
 import sqlite3  # This imports sqlite3
 
@@ -240,14 +238,6 @@ def update(pid):
 
 
 
-
-
-
-
-
-
-
-
 @app.route('/delete_record/<int:pid>')
 def delete_record(pid):
     msg = ""
@@ -267,14 +257,6 @@ def delete_record(pid):
 
             return redirect(url_for('kazi', msg=msg))
             con.close()
-
-
-
-
-
-
-
-
 
 
 
